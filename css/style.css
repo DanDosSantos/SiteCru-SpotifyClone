@@ -16,8 +16,6 @@ body {
 
 /****************** Utility Classes **************/
 
-
-
 .btn-primary {
 	background: var(--default-green);
 	color: white;
@@ -42,8 +40,6 @@ body {
 
 
 /********************** Navbar *********************/
-
-
 
 #navbar {
 	display: flex;
@@ -97,8 +93,6 @@ body {
 
 /****************** Showcase *****************/
 
-
-
 #showcase {
 	height: 100vh;
 	display: flex;
@@ -127,8 +121,6 @@ body {
 
 
 /******************* Footer ****************/
-
-
 
 #footer {
 	background: black;
@@ -168,8 +160,6 @@ body {
 
 /********************** Footer Socials ****************/
 
-
-
 .socials {
 	display: flex;
 }
@@ -188,8 +178,6 @@ body {
 
 
 /**************** Footer Info *************/
-
-
 
 .footer-info {
 	display: flex;
@@ -245,19 +233,17 @@ body {
 
 /*************** Cadastro ***********/
 
-
-
 #cadastro {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 120vh;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.823), rgb(0, 0, 0));
     color: white;
 }
 
 #cadastro .cadastro-container {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.51);
     padding: 40px;
     border-radius: 10px;
     width: 100%;
@@ -285,10 +271,15 @@ body {
 }
 
 #cadastro .cadastro-form .form-group input {
-    width: 100%;
+	background-color: rgba(0, 0, 0, 0);
+	width: 100%;
     padding: 10px;
-    border: none;
-    border-radius: 5px;
+    border: 1px solid rgb(90, 90, 90);
+    border-radius: 4px;
+}
+
+#cadastro .cadastro-form .form-group input:hover {
+	color: white;
 }
 
 #cadastro .cadastro-form .form-group input[type="checkbox"] {
@@ -305,4 +296,80 @@ body {
     width: 100%;
     padding: 15px;
     text-align: center;
+}
+
+
+
+/*************** Login ***********/
+
+#login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.823), rgb(0, 0, 0));
+    color: white;
+}
+
+#login .login-container {
+    background: rgba(0, 0, 0, 0.51);
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#login .login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#login .login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#login .login-form .form-group {
+    margin-bottom: 30px;
+}
+
+#login.login-form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#login .login-form .form-group input {
+    background-color: rgba(0, 0, 0, 0);
+	width: 100%;
+    padding: 10px;
+	border: 1px solid rgb(90, 90, 90);
+    border-radius: 4px;
+}
+
+#login .btn-primary {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+}
+
+#login .login-container .sem-conta {
+	color: #989898;
+}
+
+#login .login-container a.link {
+    color: white; /* Cor do texto */
+}
+
+#login .login-container a.link:hover {
+    color: #1db954; /* Cor ao passar o mouse */
+}
+
+
+
+
+/*************** Cor do texto digitado ***********/
+
+input{
+	color: rgb(255, 255, 255);
 }

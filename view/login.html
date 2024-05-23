@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <title>Login - Spotify</title>
+    <script src="../js/cadastro.js" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <navbar id="navbar">
+        <div class="navbar-container">
+            <a href="../index.html"><img src="../img/logo.png" alt="Logo Spotify" class="logo" /></a>
+        </div>
+    </navbar>
+
+    <!-- Login -->
+    <div id="login">
+        <div class="login-container">
+            <h2>Entrar no Spotify</h2>
+            <form id="login-form" class="login-form" onsubmit="event.preventDefault(); cadastroUsuario()">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required/>
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" required />
+                </div>
+                <button type="submit" class="btn-primary">Entrar</button> <br>
+                <div class="sem-conta">
+                    <label for="">Não tem uma conta?</label>
+                    <a href="./cadastro.html" class="link">Inscreva-se no Spotify</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <img src="../img/logo.png" alt="" class="logo" />
+            <ul class="footer-menu">
+                <p>Empresa</p>
+                <li class="footer-menu-item">Sobre</li>
+                <li class="footer-menu-item">Empregos</li>
+                <li class="footer-menu-item">For the record</li>
+            </ul>
+
+            <ul class="footer-menu">
+                <p>Comunidades</p>
+                <li class="footer-menu-item">Para Artistas</li>
+                <li class="footer-menu-item">Desenvolvedores</li>
+                <li class="footer-menu-item">Marcas</li>
+                <li class="footer-menu-item">Investidores</li>
+                <li class="footer-menu-item">Fornecedores</li>
+            </ul>
+
+            <ul class="footer-menu">
+                <p>Links úteis</p>
+                <li class="footer-menu-item">Ajuda</li>
+                <li class="footer-menu-item">Player da Web</li>
+                <li class="footer-menu-item">Aplicativo móvel grátis</li>
+            </ul>
+
+            <div class="socials">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-facebook-f"></i>
+            </div>
+        </div>
+        <div class="footer-info">
+            <ul class="footer-info-items">
+                <li class="footer-info-item">Legal</li>
+                <li class="footer-info-item">Centro de Privacidade</li>
+                <li class="footer-info-item">Política de privacidade</li>
+                <li class="footer-info-item">Cookies</li>
+                <li class="footer-info-item">Sobre anúncios</li>
+            </ul>
+
+            <div class="rights">
+                <div class="country">
+                    <p>Brasil</p>
+                    <img src="../img/brazil.png" alt="" class="brazil-flag" />
+                </div>
+                <p>&copy; 2024 Spotify AB</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
