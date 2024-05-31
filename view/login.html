@@ -20,16 +20,20 @@
     <div id="login">
         <div class="login-container">
             <h2>Entrar no Spotify</h2>
-            <form id="login-form" class="login-form" onsubmit="event.preventDefault(); cadastroUsuario()">
+            <form id="login-form" class="login-form">
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">E-mail</label>
                     <input type="email" id="email" name="email" required/>
                 </div>
                 <div class="form-group">
                     <label for="senha">Senha</label>
-                    <input type="password" id="senha" name="senha" required />
+                    <input type="password" id="password" name="senha" required />
                 </div>
-                <button type="submit" class="btn-primary">Entrar</button> <br>
+                <input
+                    type="button"
+                    class="btn-primary"
+                    value="Entrar"
+                    onclick="login()"> <br>
                 <div class="sem-conta">
                     <label for="">Não tem uma conta?</label>
                     <a href="./cadastro.html" class="link">Inscreva-se no Spotify</a>

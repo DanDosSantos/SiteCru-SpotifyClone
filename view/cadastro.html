@@ -28,34 +28,133 @@
             <h2>Se inscreva e <br> comece a curtir</h2>
             <form id="cadastro-form" class="cadastro-form">
                 <div class="form-group">
-                    <label for="nome">Nome Completo</label>
-                    <input type="text" id="nome" name="nome" minlength="3" />
+                  <label for="name">Nome Completo</label>
+                  <input
+                    type="text"
+                    class="input-field"
+                    id="name"
+                    name="name"
+                    required
+                  />
+                  <i class="bx bx-user"></i>
+                  <span id="name-error" style="display: none; color: red"
+                    >Por favor, insira seu nome completo.</span
+                  >
+                  <script>
+                    // Função para validar o nome completo
+                    function validarNomeCompleto() {
+                      var nameInput = document.getElementById('name')
+                      var nameErrorSpan = document.getElementById('name-error')
+    
+                      // Verifica se o valor do campo contém pelo menos dois termos separados por um espaço
+                      if (nameInput.value.split(' ').length < 2) {
+                        // Mostra a mensagem de erro se o nome não for completo
+                        nameErrorSpan.style.display = 'inline'
+                      } else {
+                        // Esconde a mensagem de erro se o nome for completo
+                        nameErrorSpan.style.display = 'none'
+                      }
+                    }
+    
+                    // Adiciona um ouvinte de eventos para chamar a função de validação quando o campo de entrada é alterado
+                    document
+                      .getElementById('name')
+                      .addEventListener('input', validarNomeCompleto)
+                  </script>
                 </div>
+                <!--INPUT-BOX-->
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required />
+                  <label for="lname">CPF ou CNPJ</label>
+                  <input type="tel"
+                    class="input-field"
+                    id="cpf_cnpj"
+                    name="cpf_cnpj"
+                    maxlength="11"
+                    required
+                    pattern="\d*"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                  />
+                  <i class="bx bx-user"></i>
                 </div>
+                <!--INPUT-BOX-->
                 <div class="form-group">
-                    <label for="cpf">CPF</label>
-                    <input type="text" id="cpf" name="cpf" maxlength="11" required />
+                  <label for="lname">E-mail</label>
+                  <input
+                    type="email"
+                    class="input-field"
+                    id="email"
+                    name="email"
+                    required
+                  />
+                  <i class="bx bx-envelope"></i>
+                  <span id="email-error" style="display: none; color: red"
+                    >Por favor, insira um e-mail válido.</span
+                  >
+                  <script>
+                    // Função para validar o e-mail
+                    function validarEmail() {
+                      var emailInput = document.getElementById('email')
+                      var emailErrorSpan = document.getElementById('email-error')
+    
+                      if (!emailInput.checkValidity()) {
+                        // Mostra a mensagem de erro se o e-mail não for válido
+                        emailErrorSpan.style.display = 'inline'
+                      } else {
+                        // Esconde a mensagem de erro se o e-mail for válido
+                        emailErrorSpan.style.display = 'none'
+                      }
+                    }
+    
+                    // Adiciona um ouvinte de eventos para chamar a função de validação quando o campo de entrada é alterado
+                    document
+                      .getElementById('email')
+                      .addEventListener('input', validarEmail)
+                  </script>
                 </div>
+                <!--INPUT-BOX-->
                 <div class="form-group">
-                    <label for="data_nascimento">Data de Nascimento</label>
-                    <input type="date" id="data_nascimento" name="data_nascimento" required />
+                  <label for="lname">Data de Nascimento</label>
+                  <input
+                    type="date"
+                    class="input-field"
+                    id="birthday"
+                    name="birthday"
+                    required
+                  />
+                  <i class="bx bx-balloon"></i>
                 </div>
+                <!--INPUT-BOX-->
                 <div class="form-group">
-                    <label for="senha">Senha</label>
-                    <input type="password" id="senha" name="senha" required />
+                  <label for="lname">Senha</label>
+                  <input
+                    type="password"
+                    class="input-field"
+                    id="password"
+                    name="password"
+                    required
+                  />
+                  <i class="bx bx-lock-alt"></i>
                 </div>
+                <!--INPUT-BOX-->
                 <div class="label-term">
-                    <label for="user_type">Concordo com os termos</label>
-                    <select id="user_type" class="select-op" name="user_type">
-                      <option value="1">Sim</option>
-                      <option value="0">Não</option>
-                    </select>
+                  <label for="user_type">Concordo com os termos</label>
+                  <select id="user_type" class="select-op" name="user_type">
+                    <option value="1">Sim</option>
+                    <option value="0">Não</option>
+                  </select>
                 </div>
-                <button type="submit" class="btn-primary" onclick="cadastroUsuario()">Inscrever-se</button>
-            </form>
+                <!--LABEL-TERM-->
+                <br>
+                <div class="">
+                  <input
+                    type="button"
+                    class="btn-primary"
+                    value="Inscrever-se"
+                    onclick="cadastroUsuario()"
+                  />
+                </div>
+                <!--INPUT-BOX-->
+              </form>
         </div>
     </div>
 
