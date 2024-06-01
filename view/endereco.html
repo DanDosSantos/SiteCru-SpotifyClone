@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Cadastro de Endereço - Spotify</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <navbar id="navbar">
+        <div class="navbar-container">
+            <a href="../index.html"><img src="../img/logo.png" alt="Logo Spotify" class="logo"></a>
+        </div>
+    </navbar>
+
+    <!-- Conteúdo da Página de Cadastro de Endereço -->
+    <div id="cadastro-endereco">
+        <div class="cadastro-container">
+            <h2>Cadastre seu Endereço</h2>
+            <form id="endereco-form" class="cadastro-form" onsubmit="salvarEndereco(event)">
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo" required>
+                </div>
+                <div class="form-group">
+                    <label for="cep">CEP</label>
+                    <input type="text" id="cep" name="cep" required>
+                </div>
+                <div class="form-group">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" name="endereco" required>
+                </div>
+                <div class="form-group">
+                    <label for="numero">Número</label>
+                    <input type="text" id="numero" name="numero" required>
+                </div>
+                <input type="submit" class="btn-primary" value="Salvar Endereço">
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <!-- Conteúdo do footer -->
+    </footer>
+
+    <!-- Script JavaScript -->
+    <script src="../js/endereco.js" defer></script>
+
+</body>
+</html>

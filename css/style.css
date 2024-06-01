@@ -377,3 +377,129 @@ body .form-group, label {
 input{
 	color: rgb(255, 255, 255);
 }
+
+
+/****************** Conteúdo da Página Home *****************/
+
+#home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.823), rgb(0, 0, 0));
+    color: white;
+}
+
+#home .home-container {
+    background: rgba(0, 0, 0, 0.51);
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+#home .home-container h2 {
+    margin-bottom: 20px;
+}
+
+#home .home-container p {
+    margin-bottom: 20px;
+	font-size: 13px;
+}
+
+#home .btn-primary {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+}
+
+#home .btn-primary:hover {
+    background: var(--light-green);
+    cursor: pointer;
+}
+
+/* Estilo específico para o botão Cadastre seu Endereço */
+#home .btn-primary {
+    margin-top: 20px;
+	text-decoration: none; /* Remove o sublinhado */
+	font-size: 12px;
+}
+
+
+/*************** Cadastro de Endereço ***********/
+
+#cadastro-endereco {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 130vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.823), rgb(0, 0, 0));
+    color: white;
+}
+
+#cadastro-endereco .cadastro-container {
+    background: rgba(0, 0, 0, 0.51);
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#cadastro-endereco .cadastro-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#cadastro-endereco .cadastro-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#cadastro-endereco .cadastro-form .form-group {
+    margin-bottom: 15px;
+}
+
+#cadastro-endereco .cadastro-form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#cadastro-endereco .cadastro-form .form-group input {
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(90, 90, 90);
+    border-radius: 4px;
+}
+
+#cadastro-endereco .cadastro-form .form-group input:hover {
+    color: white;
+}
+
+#cadastro-endereco .cadastro-form .form-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+#cadastro-endereco .cadastro-form .form-group.terms {
+    display: flex;
+    align-items: center;
+}
+
+#cadastro-endereco .btn-primary {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+}
+
+#cadastro-endereco label {
+    font-weight: bold;
+}
+
+/*************** Cor do texto digitado ***********/
+
+input {
+    color: rgb(255, 255, 255);
+}

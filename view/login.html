@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
     <title>Login - Spotify</title>
-    <script src="../js/cadastro.js" defer></script>
+    <script src="../js/login.js" defer></script> <!-- Alterado o nome do script -->
 </head>
 <body>
     <!-- Navbar -->
@@ -29,11 +29,17 @@
                     <label for="senha">Senha</label>
                     <input type="password" id="password" name="senha" required />
                 </div>
-                <input
-                    type="button"
-                    class="btn-primary"
-                    value="Entrar"
-                    onclick="login()"> <br>
+                <div class="form-group">
+                    <label for="user_type_id">Tipo de Usuário</label>
+                    <select id="user_type_id" name="user_type_id" required>
+                        <option value="" disabled selected>Selecione o Tipo de Usuário</option>
+                        <option value="1">Cliente</option>
+                        <option value="2">Administrador</option>
+                        <option value="3">Vendedor</option>
+                    </select>
+                </div>
+                <input type="button" class="btn-primary" value="Entrar" onclick="loginUser()">
+                <br>
                 <div class="sem-conta">
                     <label for="">Não tem uma conta?</label>
                     <a href="./cadastro.html" class="link">Inscreva-se no Spotify</a>
