@@ -396,11 +396,12 @@ input{
     border-radius: 10px;
     width: 100%;
     max-width: 400px;
-    text-align: center;
+	
 }
 
 #home .home-container h2 {
     margin-bottom: 20px;
+	text-align: center;
 }
 
 #home .home-container p {
@@ -410,7 +411,6 @@ input{
 
 #home .btn-primary {
     width: 100%;
-    padding: 15px;
     text-align: center;
 }
 
@@ -425,6 +425,7 @@ input{
 	text-decoration: none; /* Remove o sublinhado */
 	font-size: 12px;
 }
+
 
 
 /*************** Cadastro de Endereço ***********/

@@ -20,7 +20,7 @@
     <div id="cadastro-endereco">
         <div class="cadastro-container">
             <h2>Cadastre seu Endereço</h2>
-            <form id="endereco-form" class="cadastro-form" onsubmit="salvarEndereco(event)">
+            <form id="endereco-form" class="cadastro-form">
                 <div class="form-group">
                     <label for="titulo">Título</label>
                     <input type="text" id="titulo" name="titulo" required>
@@ -37,7 +37,7 @@
                     <label for="numero">Número</label>
                     <input type="text" id="numero" name="numero" required>
                 </div>
-                <input type="submit" class="btn-primary" value="Salvar Endereço">
+                <button type="button" class="btn-primary" onclick="salvarendereco()">Cadastrar</button>
             </form>
         </div>
     </div>

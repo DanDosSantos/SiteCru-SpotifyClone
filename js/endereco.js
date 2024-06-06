@@ -1,55 +1,116 @@
-async function salvarEndereco(event) {
-    event.preventDefault(); // Impede o envio do formulário
+const url = 'https://go-wash-api.onrender.com/api/auth/address';
 
-    const url = "https://go-wash-api.onrender.com/api/auth/address";
+async function salvarendereco() {  
+    let titulo = document.getElementById('titulo').value;
+    let cep = document.getElementById('cep').value;
+    let endereço = document.getElementById('endereco').value;
+    let numero = document.getElementById('numero').value;
 
-    // Obter valores dos campos do formulário
-    let titulo = document.getElementById("titulo").value;
-    let cep = document.getElementById("cep").value;
-    let endereco = document.getElementById("endereco").value;
-    let numero = document.getElementById("numero").value;
-
-    // Obter token de autenticação do localStorage
-    let token = localStorage.getItem('authToken');
-
-    // Verificar se o token de autenticação está presente
-    if (!token) {
-        alert("Token de autorização não encontrado. Faça login novamente.");
+    if(titulo === ''){
+        alert("Preencha o título");
+        return;
+    }
+    
+    if(cep === ''){
+        alert("Preencha o seu CEP");
         return;
     }
 
-    // Fazer uma requisição POST para a API de endereço
-    try {
-        let response = await fetch(url, {
-            method: "POST",
-            body: JSON.stringify({
-                "title": titulo,
-                "cep": cep,
-                "address": endereco,
-                "number": numero
-            }),
-            headers: {
-                'Content-Type': 'application/json',
-                "Authorization": "Bearer " + token
-            }
-        });
+    if(endereço === ''){
+        alert("Preencha o seu endereço");
+        return;
+    }
 
-        // Verifica se a resposta é bem-sucedida
-        if (!response.ok) {
-            throw new Error(`Erro ${response.status}: ${response.statusText}`);
+    if(numero === ''){
+        alert("Preencha o seu número");
+        return;
+    }
+
+    // Verificar se o CEP é válido
+    const cepValido = await verificarCEP(cep);
+    if (!cepValido) {
+        alert("CEP inválido. Por favor, insira um CEP válido cadastrado no site ViaCEP.");
+        return;
+    }
+
+    const resposta = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+            "title": titulo,
+            "cep": cep,
+            "address": endereço,
+            "number": numero
+        }),
+        headers: {
+            'Content-Type': 'application/json'
         }
+    });
 
-        // Extrair a resposta JSON
-        let responseData = await response.json();
-        console.log(responseData);
-
-        // Mostrar mensagem de sucesso
-        alert("Endereço cadastrado com sucesso");
-
-        // Redirecionar para a página home.html
-        window.location.href = "home.html";
-    } catch (error) {
-        console.error('Erro:', error);
-        alert(`Erro ao cadastrar endereço: ${error.message}`);
+    if(resposta.ok) {
+        alert("Cadastro feito com sucesso");
+        salvarDadosLocal(titulo, cep, endereço, numero); // Salvando os dados localmente
+        window.location.href = "home.html"; // Redirecionando para a página de login
+    } else {
+        alert("Ocorreu um erro ao cadastrar o endereço");
     }
 }
+
+async function verificarCEP(cep) {
+    const viaCEPURL = `https://viacep.com.br/ws/${cep}/json/`;
+    try {
+        const response = await fetch(viaCEPURL);
+        const data = await response.json();
+
+        if (!data.erro) {
+            // Preencher o campo de endereço com os dados obtidos
+            document.getElementById('endereco').value = data.logradouro;
+            return true; // Retorna true se o CEP for válido e o endereço for preenchido
+        } else {
+            alert("CEP não encontrado. Por favor, verifique o CEP digitado.");
+            return false; // Retorna false se o CEP não for encontrado
+        }
+    } catch (error) {
+        console.error("Erro ao verificar CEP:", error);
+        return false; // Retorna false em caso de erro
+    }
+}
+
+function initializeMap(cep) {
+    const viaCEPURL = `https://viacep.com.br/ws/${cep}/json/`;
+    fetch(viaCEPURL)
+        .then(response => response.json())
+        .then(data => {
+            if (!data.erro) {
+                const endereco = `${data.logradouro}, ${data.localidade} - ${data.uf}`;
+                const googleMapsURL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(endereco)}`;
+                window.open(googleMapsURL, "_blank");
+            } else {
+                alert("CEP não encontrado. Por favor, verifique o CEP digitado.");
+            }
+        })
+        .catch(error => console.error("Erro ao verificar CEP:", error));
+}
+
+document.getElementById('map-icon').addEventListener('click', function() {
+    const cep = document.getElementById('cep').value;
+    if (cep !== '') {
+        initializeMap(cep);
+    } else {
+        alert("Por favor, informe um CEP válido antes de visualizar no mapa.");
+    }
+});
+
+function salvarDadosLocal(titulo, cep, endereço, numero) {
+        const dados = {
+        titulo: titulo,
+        cep: cep,
+        endereco: endereço,
+        numero: numero
+    };
+    localStorage.setItem('endereco', JSON.stringify(dados));
+}
+
+document.getElementById('cep').addEventListener('input', function() {
+    const cep = this.value;
+    verificarCEP(cep);
+});
